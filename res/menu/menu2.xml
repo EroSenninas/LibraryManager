@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/booksList"
+        android:title="Manage books"
+        app:showAsAction="never">
+
+        <menu>
+            <item android:id="@+id/addBook" android:title="addBook"></item>
+            <item android:id="@+id/editBook" android:title="editBook"></item>
+        </menu>
+    </item>
+
+    <item android:id="@+id/manageList"
+        android:title="Manage clients"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/action_search"
+        android:title="Search"
+        android:icon="@android:drawable/ic_menu_search"
+        app:showAsAction="ifRoom"
+        app:actionViewClass="android.support.v7.widget.SearchView" />
+
+    <item android:id="@+id/action_refresh"
+        android:title="Refresh"
+        android:icon="@drawable/refresh"
+        app:showAsAction="ifRoom" />
+
+</menu>
