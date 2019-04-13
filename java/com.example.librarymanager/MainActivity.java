@@ -1,4 +1,3 @@
-```java
 package com.example.librarymanager;
 
 import android.app.ProgressDialog;
@@ -13,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.librarymanager.AdminPackage.SecureActivityAdmin;
+import com.example.librarymanager.UserPackage.BooksPackage.BooksActivityUser;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -47,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // configure Firebase
         mAuth = FirebaseAuth.getInstance();
 
         db = FirebaseFirestore.getInstance();
@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
         db.setFirestoreSettings(settings);
 
 
-        // configure Android Studio
         mProgress = new ProgressDialog(this);
 
         emailField = (EditText) findViewById(R.id.emailField);
@@ -108,13 +107,13 @@ public class MainActivity extends AppCompatActivity {
 
                                 if (nestedData.get("admin").equals(true)) {
 
-                                    Intent adminIntent = new Intent(MainActivity.this, AdminActivity.class);
+                                    Intent adminIntent = new Intent(MainActivity.this, SecureActivityAdmin.class);
                                     adminIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                     startActivity(adminIntent);
 
                                 } else {
 
-                                    Intent userIntent = new Intent(MainActivity.this, UserActivity.class);
+                                    Intent userIntent = new Intent(MainActivity.this, BooksActivityUser.class);
                                     userIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                     startActivity(userIntent);
 
@@ -166,7 +165,8 @@ public class MainActivity extends AppCompatActivity {
 
                         user.put("role", nestedData);
 
-                        db.collection("users")
+                        db
+                                .collection("users")
                                 .document(userUID)
                                 .set(user)
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
@@ -182,7 +182,7 @@ public class MainActivity extends AppCompatActivity {
                                     }
                                 });
 
-                        Intent userIntent = new Intent(MainActivity.this, UserActivity.class);
+                        Intent userIntent = new Intent(MainActivity.this, BooksActivityUser.class);
                         userIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(userIntent);
 
@@ -200,4 +200,3 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 }
-```
