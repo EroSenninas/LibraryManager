@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/booksList"
+        android:title="All books"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/ordersList"
+        android:title="My orders"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/requestsList"
+        android:title="My requests"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/penalty"
+        android:title="My penalty"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/action_search"
+        android:title="Search"
+        android:icon="@android:drawable/ic_menu_search"
+        app:showAsAction="ifRoom"
+        app:actionViewClass="android.support.v7.widget.SearchView" />
+
+    <item android:id="@+id/action_refresh"
+        android:title="Refresh"
+        android:icon="@drawable/refresh"
+        app:showAsAction="ifRoom" />
+
+    <item android:id="@+id/wishList"
+        android:title="My wishlist"
+        app:showAsAction="never"/>
+
+</menu>
